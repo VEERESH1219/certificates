@@ -313,7 +313,10 @@ async function renderCertificate(user, photoBase64, lang = 'en') {
 
     // 1. Signature Image 
     try {
-        const sigImg = await loadImage('/assets/signature.png');
+        // Derive signature path from this script's own src (works from any page)
+        const scriptEl = document.querySelector('script[src*="certificate-renderer"]');
+        const assetsBase = scriptEl.src.replace(/js\/certificate-renderer\.js.*$/, '');
+        const sigImg = await loadImage(assetsBase + 'signature.png');
 
         // Dynamic scaling: Limit width to 450px for smaller signature, but maintain aspect ratio
         const maxSigW = 450;

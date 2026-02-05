@@ -106,8 +106,8 @@ def generate_html_page(template_path, output_path, student, base_url, assets_pat
     # Student data as JSON
     student_json = json.dumps(student, ensure_ascii=False)
 
-    # Photo path (absolute from site root)
-    photo_path = f"/bootcamp/kiet/assets/student_images/{student['rollno']}.jpg"
+    # Relative from {rollno}/index.html up to kiet/assets/student_images/
+    photo_path = f"../assets/student_images/{student['rollno']}.jpg"
 
     # Replace placeholders
     html = template
@@ -250,8 +250,8 @@ def generate_certificates(students, args, project_dir):
             if args.all or args.pages:
                 html_path = student_dir / 'index.html'
                 try:
-                    # Absolute path from site root so it works from any page
-                    assets_path = "/assets/"
+                    # Relative from {rollno}/index.html up to kiet/assets/
+                    assets_path = "../assets/"
                     generate_html_page(
                         template_html,
                         html_path,
