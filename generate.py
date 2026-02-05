@@ -131,7 +131,7 @@ def generate_certificates(students, args, project_dir):
     docs_dir = project_dir / 'docs' / 'bootcamp' / 'kiet'
     render_html = docs_dir / 'render.html'
     template_html = project_dir / 'template.html'
-    student_images_dir = docs_dir / 'assets' / 'student_images'
+    student_images_dir = project_dir / 'docs' / 'assets' / 'student_images'
     output_dir = Path(args.output) if args.output else docs_dir
     pdfs_dir = project_dir / 'pdfs'
 
@@ -250,8 +250,8 @@ def generate_certificates(students, args, project_dir):
             if args.all or args.pages:
                 html_path = student_dir / 'index.html'
                 try:
-                    # Calculate relative path to assets from student folder
-                    assets_path = "../assets/"
+                    # Absolute path from site root so it works from any page
+                    assets_path = "/assets/"
                     generate_html_page(
                         template_html,
                         html_path,
