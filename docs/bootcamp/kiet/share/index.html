@@ -8,7 +8,7 @@
     <!-- Primary Meta Tags -->
     <title>Verify Certificate — AI Karyashala</title>
     <meta name="description"
-        content="Verify your AI Karyashala Bootcamp certificate. Enter your Certificate ID to preview and share your certificate.">
+        content="Verify your certificate. Enter your Certificate ID to preview and share your certificate.">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -588,7 +588,7 @@
 
         <!-- Header -->
         <header class="header">
-            <span class="header__badge">AI Karyashala Bootcamp</span>
+            <span class="header__badge">AI Karyashala's Bootcamp</span>
             <h1 class="header__title">Verify & Share Certificate</h1>
             <p class="header__subtitle">Enter your Roll Number to preview &amp; share your certificate</p>
         </header>
@@ -717,7 +717,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>AI Karyashala Bootcamp &mdash; KIET, Kakinada</p>
+            <p>AI Karyashala's Bootcamp &mdash; KIET, Kakinada</p>
             <p><a href="https://aikaryashala.com">aikaryashala.com</a></p>
         </footer>
 
@@ -957,8 +957,9 @@
                 $btnReport.href = reportUrl(id);
                 
                 // LinkedIn share with pre-filled text + hashtags
-                const linkedinText = `I successfully completed the AI Karyashala Bootcamp at KIET, Kakinada! 🎓🚀\n\nVerify my certificate here:\n${url}\n\n${SHARE_HASHTAGS.join(' ')}`;
-                $btnLinkedIn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+                const linkedinText = `My participation certificate: ${url}\n\n${SHARE_HASHTAGS.join(' ')}`;
+                $btnLinkedIn.href = 'https://www.linkedin.com/feed/?shareActive=true&text=' + encodeURIComponent(linkedinText);
+               
 
                 $iframe.src = path;
                 $iframeLoad.classList.remove('hidden');
